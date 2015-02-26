@@ -1,0 +1,55 @@
+$inactiveColor: #222222;
+$activeColor: #2cc52c;
+
+div.sampler {
+  div.sampler-grid {
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    background-color: $inactiveColor;
+    div.sampler-grid-row {
+      width: 100%;
+      height: (100% / 3);
+      clear: both;
+      border-top: 1px solid white;
+      &:first-child {
+        border-top: none;
+      }
+      div.sampler-grid-col {
+        display: table;
+        width: (100% / 3);
+        height: 100%;
+        float: left;
+        font-size: 26px;
+        border-left: 1px solid white;
+        color: white;
+        background-color: $inactiveColor;
+        transition: background-color 0.2s ease-out;
+        transition-property: background-color, color;
+        &.down {
+          color: black;
+          background-color: $activeColor;
+          transition: none;
+        }
+        &:after {
+          content: '';
+          display: table-cell;
+          height: 100%;
+          vertical-align: middle;
+        }
+        &:first-child {
+          border-left: none;
+        }
+      }
+    }
+  }
+}
+
+// Sampler Pad Colors
+@for $i from 1 through 9 {
+  #sampler-pad-#{$i} {
+    &:after {
+      content: "#{$i}";
+    }
+  }
+}

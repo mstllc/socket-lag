@@ -1,0 +1,29 @@
+html {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+#app-container {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.table {
+  display: table;
+  width: 100%;
+  height: 100%;
+  .table-cell {
+    display: table-cell;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    text-align: center;
+  }
+}

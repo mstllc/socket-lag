@@ -1,0 +1,19 @@
+{
+  "name": "socket-lag",
+  "description": "Testing lag time of web socket connections",
+  "version": "0.0.0",
+  "author": "Max Thorson <max.thorson@space150.com>",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-scss": "~3.0.2",
+    "jquery": "~2.1.3"
+  }
+}
