@@ -2,6 +2,8 @@ html {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: bold;
   box-sizing: border-box;
+  -webkit-user-select: none;
+  user-select: none;
 }
 *, *:before, *:after {
   box-sizing: inherit;

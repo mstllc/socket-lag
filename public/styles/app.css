@@ -456,14 +456,16 @@ html {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: bold;
   box-sizing: border-box;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
-/* line 6, partials/_base.scss */
+/* line 8, partials/_base.scss */
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
-/* line 10, partials/_base.scss */
+/* line 12, partials/_base.scss */
 #app-container {
   position: absolute;
   top: 0px;
@@ -472,13 +474,13 @@ html {
   left: 0px;
 }
 
-/* line 18, partials/_base.scss */
+/* line 20, partials/_base.scss */
 .table {
   display: table;
   width: 100%;
   height: 100%;
 }
-/* line 22, partials/_base.scss */
+/* line 24, partials/_base.scss */
 .table .table-cell {
   display: table-cell;
   width: 100%;
