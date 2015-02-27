@@ -8,30 +8,10 @@
     <link rel="stylesheet" href="/styles/app.css">
   </head>
   <body>
-    <div id="app-container" class="<%= containerClass %>">
-      <div class="table">
-        <div class="table-cell">
-          <div class="sampler">
-            <div class="sampler-grid">
-              <div class="sampler-grid-row">
-                <div id="sampler-pad-1" class="sampler-grid-col"></div>
-                <div id="sampler-pad-2" class="sampler-grid-col"></div>
-                <div id="sampler-pad-3" class="sampler-grid-col"></div>
-              </div>
-              <div class="sampler-grid-row">
-                <div id="sampler-pad-4" class="sampler-grid-col"></div>
-                <div id="sampler-pad-5" class="sampler-grid-col"></div>
-                <div id="sampler-pad-6" class="sampler-grid-col"></div>
-              </div>
-              <div class="sampler-grid-row">
-                <div id="sampler-pad-7" class="sampler-grid-col"></div>
-                <div id="sampler-pad-8" class="sampler-grid-col"></div>
-                <div id="sampler-pad-9" class="sampler-grid-col"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div id="app-container">
+      <div pad></div> <div pad></div> <div pad></div>
+      <div pad></div> <div pad></div> <div pad></div>
+      <div pad></div> <div pad></div> <div pad></div>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>

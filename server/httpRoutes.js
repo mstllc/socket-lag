@@ -1,13 +1,6 @@
 module.exports = function(app) {
-
-  app.route('/mobile/:id')
+  app.route("/")
     .get(function(req, res, next) {
-      res.render('index', {containerClass: 'mobile'});
+      res.render("index");
     });
-
-  app.route('/:id')
-    .get(function(req, res, next) {
-      res.render('index', {containerClass: 'desktop'});
-    });
-
 };

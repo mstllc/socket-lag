@@ -7,31 +7,62 @@
   var isMobile = pathParts.indexOf('mobile') > -1;
   var clientID = pathParts.pop();
 
-  // Socket connection
-  socket.on('connect', function() {
 
-    // Setup client on server
-    socket.emit('client-setup', {cid: clientID, mobile: isMobile});
+  var padContainer = document.getElementById("app-container");
+  var padEls = document.querySelectorAll("[pad]");
+  var pads = [];
+  var i;
+  var padsActive = 0;
+  for (i = 0; i < padEls.length; i += 1) {
+    padEls[i].padID = Math.pow(2, i);
+    padEls[i].padActive = false;
+    pads.push(padEls[i]);
+  }
 
-    if(!isMobile) {
-      socket.on('pad-down', function(pid) {
-        $('#' + pid).addClass('down');
-      });
-      socket.on('pad-up', function(pid) {
-        $('#' + pid).removeClass('down');
-      });
-    } else {
-      $('.sampler-grid-col').on('touchstart', function(e) {
-        socket.emit('pad-down', {cid: clientID, pid: e.currentTarget.id});
-        $(e.currentTarget).addClass('down');
-      });
+  // Set up eventListeners;
+  padContainer.addEventListener("touchstart", on);
+  padContainer.addEventListener("touchend", off);
+  padContainer.addEventListener("mousedown", on);
+  padContainer.addEventListener("mouseup", off);
 
-      $('.sampler-grid-col').on('touchend', function(e) {
-        socket.emit('pad-up', {cid: clientID, pid: e.currentTarget.id});
-        $(e.currentTarget).removeClass('down');
-      });
-    }
 
+  function on(e) {
+    e.target.padActive = true;
+    broadcast();
+  }
+
+  function off(e) {
+    e.target.padActive = false;
+    broadcast();
+  }
+
+  function broadcast() {
+    padsActive = pads.reduce(function(val, pad) {
+      return pad.padActive ? val | pad.padID : val;
+    }, 0);
+    socket.emit("change", padsActive);
+  }
+
+
+  // drawing shit
+  function highlightActivePads() {
+    pads.forEach(function(p) {
+      var active = padsActive & p.padID;
+      if (active) {
+        p.classList.add("activated");
+      } else {
+        p.classList.remove("activated");
+      }
+      p.padActive = active;
+    });
+    requestAnimationFrame(highlightActivePads);
+  }
+
+  highlightActivePads();
+
+
+  socket.on("change", function(active) {
+    padsActive = active;
   });
 
 }(window, window.jQuery, window.io, undefined));
