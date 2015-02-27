@@ -1,6 +1,58 @@
 @import "../bower_components/normalize-scss/normalize";
 
-@import "partials/base";
-@import "partials/sampler";
+html {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  box-sizing: border-box;
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  -khtml-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  height: 100%;
+  width: 100%;
 
-@import "partials/mobile";
+  background: #191913;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+$pad-color-inner: #999187;
+$pad-color-outer: #9e968c;
+
+body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+#app-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+     -moz-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+  height: 324px;
+  width: 324px;
+}
+
+[pad] {
+  height: 100px;
+  width: 100px;
+  background: $pad-color-inner;
+  margin: 4px;
+  border-radius: 3px;
+  box-shadow: inset 0px 0px 30px 5px $pad-color-outer;
+  float: left;
+  font-family: monospace;
+  font-size: 10px;
+  text-align: center;
+
+  &:nth-child(3n + 1) { clear: left; }
+
+  &.activated { background: #3ee33e; }
+}
